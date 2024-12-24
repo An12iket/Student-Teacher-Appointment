@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../util/firebase"; // Import Firebase auth
+import { auth } from "../util/firebase"; // Import Firebase auth
 import "./Common.css";
-import RedirectButton from "../RedirectComponent";
+import RedirectButton from "./RedirectComponent";
 
 const Login = () => {
   const [email, setEmail] = useState("");

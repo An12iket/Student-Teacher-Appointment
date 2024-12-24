@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs, doc, updateDoc } from "firebase/firestore";
-import { db } from "../../util/firebase"; // Adjust the path as needed
+import { db } from "../util/firebase"; 
 import "./LecturerDashboard.css";
-import RedirectButton from "../RedirectComponent";
+import RedirectButton from "./RedirectComponent";
 
 const LecturerDashboard = () => {
   const [appointmentData, setAppointmentData] = useState([]);

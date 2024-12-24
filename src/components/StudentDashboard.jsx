@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../util/firebase"; // Adjust the path as needed
+import { db } from "../util/firebase"; // Adjust the path as needed
 import "./StudentDashboard.css";
-import RedirectButton from "../RedirectComponent";
-import RedirectToAppointmentsButton from "../RedirectToAppointmentsButton";
+import RedirectButton from "./RedirectComponent";
+import RedirectToAppointmentsButton from "./RedirectToAppointmentsButton";
 
 const StudentDashboard = () => {
   const [upcomingAppointments, setUpcomingAppointments] = useState([]);

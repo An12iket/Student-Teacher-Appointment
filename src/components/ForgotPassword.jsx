@@ -1,7 +1,7 @@
 // src/components/ForgotPassword.js
 import React, { useState } from "react";
 import "./Common.css";
-import RedirectButton from "../RedirectComponent";
+import RedirectButton from "./RedirectComponent";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");

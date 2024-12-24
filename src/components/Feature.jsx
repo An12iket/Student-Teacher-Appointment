@@ -1,4 +1,4 @@
-import RedirectButton from "../RedirectComponent";
+import RedirectButton from "./RedirectComponent";
 
 // Features.js
 const Features = () => {
