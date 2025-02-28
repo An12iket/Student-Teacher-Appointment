@@ -30,8 +30,8 @@ const Contact = () => {
             <CardMedia
               component="img"
               height="300"
-              image="public\assets\ak.jpg"
-              alt="CEO Photo"
+              image="https://avatars.githubusercontent.com/u/171564981?v=4"
+              alt="Akshar Photo"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div" style={{ fontWeight: 'bold' }}>
@@ -65,7 +65,7 @@ const Contact = () => {
             <CardMedia
               component="img"
               height="300"
-              image="public\assets\aniket.jpg"
+              image="https://avatars.githubusercontent.com/u/154729792?v=4"
               alt="Another Photo"
             />
             <CardContent>
