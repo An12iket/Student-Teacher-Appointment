@@ -3,9 +3,20 @@
   background:linear-gradient(135deg, #012b45, #48628f);
    color:"white"
 }
+.redirect_btn {
+  /* Default for mobile - no margin change */
+}
+
+/* Apply margin-left: 50px only for screens wider than 768px (PC) */
+@media (min-width: 768px) {
+  .redirect_btn {
+    margin-left: 50px;
+  }
+}
+
 .appointment-booking {
   max-width: 700px;
-  margin: 2rem auto;
+  margin: 0.7rem auto;
   padding: 1rem;
   background-color: #0c1d38;
   border-radius: 10px;
@@ -53,6 +64,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 95%;
+  color: #ccc;
 }
 
 .booking-form textarea {
@@ -98,4 +110,26 @@
   .submit-btn {
     font-size: 0.8rem;
   }
+}
+
+.snackbar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333; /* Dark background */
+  color: white; /* White text */
+  padding: 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000; /* Ensure it appears above other content */
+  transition: opacity 0.5s ease;
+}
+
+.snackbar-close {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
 }

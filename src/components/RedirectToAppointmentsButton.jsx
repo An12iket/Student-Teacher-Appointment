@@ -18,8 +18,8 @@ const RedirectToAppointmentsButton = () => {
 // Optional: Inline styles for the button
 const buttonStyle = {
   padding: "10px 20px",
-  backgroundColor: "#28a745",
-  color: "#FFF",
+  backgroundColor: "#ccc",
+  color: "#333333",
   border: "none",
   borderRadius: "5px",
   cursor: "pointer",

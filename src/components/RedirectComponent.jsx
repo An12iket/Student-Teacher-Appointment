@@ -1,30 +1,32 @@
 import React from "react";
+import { IconButton } from "@mui/material";
+import HomeIcon from "@mui/icons-material/Home";
 import { useNavigate } from "react-router-dom";
 
-const RedirectButton = () => {
+const HomeButton = () => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate("/"); // Redirect to the homepage
+  const handleRedirect = () => {
+    navigate("/"); // Redirect to homepage
   };
 
   return (
-    <button onClick={handleClick} style={buttonStyle}>
-      Go to Homepage
-    </button>
+    <IconButton
+      onClick={handleRedirect}
+      sx={{
+        color: "white", // Default icon color
+        backgroundColor: "#4CAF50", // Green background
+        "&:hover": {
+          backgroundColor: "#45a049", // Darker green on hover
+          transform: "scale(1.1)", // Slightly enlarge on hover
+        },
+        transition: "background-color 0.3s ease, transform 0.2s ease",
+        padding: "10px",
+      }}
+    >
+      <HomeIcon fontSize="large" />
+    </IconButton>
   );
 };
 
-// Optional: Inline styles for the button
-const buttonStyle = {
-  margin: "20px",
-  padding: "10px 20px",
-  backgroundColor: "#007BFF",
-  color: "#FFF",
-  border: "none",
-  borderRadius: "5px",
-  cursor: "pointer",
-  fontSize: "16px",
-};
-
-export default RedirectButton;
+export default HomeButton;

@@ -13,8 +13,8 @@ const AppointmentBooking = () => {
     time: "",
     message: "",
   });
-
-  const [teachers] = useState(["John Doe", "Jane Smith", "Emily Johnson"]); // Sample teacher data
+  const [snackbarVisible, setSnackbarVisible] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,21 +24,27 @@ const AppointmentBooking = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-          // Add message to Firestore
-          await addDoc(collection(db, "appointment_data"), {
-            formData: formData
-          });
-          alert("Your message has been sent!");
-          setMessage(""); // Reset message field
-        } catch (error) {
-          console.error("Error sending message: ", error);
-        }
-      };
+      // Add message to Firestore
+      await addDoc(collection(db, "appointment_data"), {
+        formData: formData
+      });
+      setSnackbarMessage("Your appointment has been booked successfully!");
+      setSnackbarVisible(true);
+      setFormData({ teacher: "", date: "", time: "", message: "" }); // Reset form
+    } catch (error) {
+      setSnackbarMessage(`Error booking appointment: ${error.message}`);
+      setSnackbarVisible(true);
+    }
+  };
+
+  const handleCloseSnackbar = () => {
+    setSnackbarVisible(false);
+  };
 
   return (
     <>
+    <div className="redirect_btn"><RedirectButton/></div>
     <div className="appointment-booking">
-      <RedirectButton/>
        <nav className="nav">
           <a href="/student-dashboard">View Dashboard</a>
         </nav>
@@ -53,11 +59,9 @@ const AppointmentBooking = () => {
           required
         >
           <option value="">-- Choose a Teacher --</option>
-          {teachers.map((teacher, index) => (
-            <option key={index} value={teacher}>
-              {teacher}
-            </option>
-          ))}
+          <option value="John Doe">John Doe</option>
+          <option value="Jane Smith">Jane Smith</option>
+          <option value="Emily Johnson">Emily Johnson</option>
         </select>
 
         <label htmlFor="date">Select Date:</label>
@@ -70,16 +74,7 @@ const AppointmentBooking = () => {
           required
         />
 
-        <label htmlFor="time">Select Time:</label>
-        <input
-          type="time"
-          id="time"
-          name="time"
-          value={formData.time}
-          onChange={handleChange}
-          required
-        />
-
+      
         <label htmlFor="message">Message (Optional):</label>
         <textarea
           id="message"
@@ -87,12 +82,21 @@ const AppointmentBooking = () => {
           value={formData.message}
           onChange={handleChange}
           placeholder="Enter the purpose of the appointment..."
+          rows={4}
         ></textarea>
 
         <button type="submit" className="submit-btn">
           Book Appointment
         </button>
       </form>
+
+      {/* Snackbar for notifications */}
+      {snackbarVisible && (
+        <div className="snackbar">
+          {snackbarMessage}
+          <button onClick={handleCloseSnackbar} className="snackbar-close">X</button>
+        </div>
+      )}
     </div>
     </>
   );
