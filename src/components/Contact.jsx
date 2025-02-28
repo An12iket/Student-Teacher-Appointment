@@ -30,7 +30,7 @@ const Contact = () => {
             <CardMedia
               component="img"
               height="300"
-              image="src\assets\ak.jpg"
+              image="public\ak.jpg"
               alt="CEO Photo"
             />
             <CardContent>
@@ -65,7 +65,7 @@ const Contact = () => {
             <CardMedia
               component="img"
               height="300"
-              image="src\assets\aniket.jpg"
+              image="public\aniket.jpg"
               alt="Another Photo"
             />
             <CardContent>
